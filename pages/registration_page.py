@@ -1,5 +1,5 @@
 import os
-from selene import browser, have
+from selene import browser, have, command, be
 from data.users import User
 
 
@@ -78,7 +78,7 @@ class RegistrationPage:
         return self
 
     def submit_form(self):
-        self.submit.click()
+        self.submit.perform(command.js.scroll_into_view).should(be.visible).click()
         return self
 
     def register_user(self, user: User):
