@@ -1,6 +1,7 @@
 import os
 from selene import browser, have, command, be
 from data.users import User
+from tests.config import FILE_PATH
 
 
 class RegistrationPage:
@@ -61,8 +62,8 @@ class RegistrationPage:
         self.hobby.element_by(have.exact_text(value)).click()
         return self
 
-    def upload_picture(self, value):
-        self.picture.send_keys(os.path.abspath(value))
+    def upload_picture(self):
+        self.picture.send_keys(FILE_PATH)
         return self
 
     def fill_current_address(self, value):
@@ -90,7 +91,7 @@ class RegistrationPage:
         self.fill_date_of_birth(user.birth_day, user.birth_month, user.birth_year)
         self.choose_subject(user.subject)
         self.choose_hobbies(user.hobbies.value)
-        self.upload_picture(user.picture)
+        self.upload_picture()
         self.fill_current_address(user.address)
         self.choose_state(user.state.value)
         self.choose_city(user.city)
