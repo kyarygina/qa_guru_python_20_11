@@ -1,4 +1,3 @@
-import os
 from selene import browser, have, command, be
 from data.users import User
 from tests.config import FILE_PATH
