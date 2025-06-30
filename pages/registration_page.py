@@ -90,7 +90,7 @@ class RegistrationPage:
         self.fill_date_of_birth(user.birth_day, user.birth_month, user.birth_year)
         self.choose_subject(user.subject)
         self.choose_hobbies(user.hobbies.value)
-        self.upload_picture(user.picture)
+        self.upload_picture(os.path.abspath('test_file.jpg'))
         self.fill_current_address(user.address)
         self.choose_state(user.state.value)
         self.choose_city(user.city)
